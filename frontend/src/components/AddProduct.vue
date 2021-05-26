@@ -34,12 +34,15 @@
 // import axios
 import axios from "axios";
  
+
+
 export default {
   name: "AddProduct",
   data() {
     return {
       productName: "",
       productPrice: "",
+      //@Work hier noch unsere zusätzlichen Felder hinzufügen
     };
   },
   methods: {
@@ -47,9 +50,12 @@ export default {
     async saveProduct() {
       try {
         await axios.post("http://localhost:5000/products", {
+        //@Work hier noch unsere zusätzlichen Felder hinzufügen, mit der GENAU gleichen Schreibweise wie im DataGrip
+
           product_name: this.productName,
           product_price: this.productPrice,
         });
+        //@Work hier noch unsere zusätzlichen Felder hinzufügen
         this.productName = "";
         this.productPrice = "";
         this.$router.push("/");
