@@ -1,5 +1,13 @@
 # frontend
 
+## Start 
+cd frontend
+npm run serve
+
++new terminal 
+cd backend 
+node index
+
 ## Project setup
 ```
 npm install

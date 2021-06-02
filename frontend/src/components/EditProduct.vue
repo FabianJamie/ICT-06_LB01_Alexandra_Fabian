@@ -51,6 +51,7 @@ export default {
         const response = await axios.get(
           `http://localhost:5000/products/${this.$route.params.id}`
         );
+        //@Work hier noch unsere zusätzlichen Felder hinzufügen
         this.productName = response.data.product_name;
         this.productPrice = response.data.product_price;
       } catch (err) {
@@ -64,10 +65,12 @@ export default {
         await axios.put(
           `http://localhost:5000/products/${this.$route.params.id}`,
           {
+            //@Work hier noch unsere zusätzlichen Felder hinzufügen
             product_name: this.productName,
             product_price: this.productPrice,
           }
         );
+        //@Work hier noch unsere zusätzlichen Felder hinzufügen
         this.productName = "";
         this.productPrice = "";
         this.$router.push("/");
