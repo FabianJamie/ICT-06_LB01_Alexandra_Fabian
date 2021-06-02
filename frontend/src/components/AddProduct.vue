@@ -1,25 +1,61 @@
 <template>
   <div>
     <div class="field">
-      <label class="label">Product Name</label>
+      <label class="label">Datum</label>
       <div class="control">
         <input
           class="input"
           type="text"
-          placeholder="Product Name"
-          v-model="productName"
+          placeholder="Datum"
+          v-model="migraineDatum"
         />
       </div>
     </div>
  
     <div class="field">
-      <label class="label">Price</label>
+      <label class="label">Start</label>
       <div class="control">
         <input
           class="input"
           type="text"
-          placeholder="Price"
-          v-model="productPrice"
+          placeholder="Start"
+          v-model="migraineStart"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Ende</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Ende"
+          v-model="migraineEnde"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Dauer</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Dauer"
+          v-model="migraineDauer"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Intensität</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Intensität"
+          v-model="migraineIntensitaet"
         />
       </div>
     </div>
@@ -40,8 +76,12 @@ export default {
   name: "AddProduct",
   data() {
     return {
-      productName: "",
-      productPrice: "",
+      migraineDatum: "",
+      migraineStart: "",
+      migraineEnde: "",
+      migraineDauer: "",
+      migraineIntensitaet: "",
+
       //@Work hier noch unsere zusätzlichen Felder hinzufügen
     };
   },
@@ -52,12 +92,18 @@ export default {
         await axios.post("http://localhost:5000/products", {
         //@Work hier noch unsere zusätzlichen Felder hinzufügen, mit der GENAU gleichen Schreibweise wie im DataGrip
 
-          product_name: this.productName,
-          product_price: this.productPrice,
+          migraine_datum: this.migraineDatum,
+          migraine_start: this.migraineStart,
+          migraine_ende: this.migraineEnde,
+          migraine_dauer: this.migraineDauer,
+          migraine_intensitaet: this.migraineIntensitaet,
         });
         //@Work hier noch unsere zusätzlichen Felder hinzufügen
-        this.productName = "";
-        this.productPrice = "";
+        this.migraineDatum = "";
+        this.migraineStart = "";
+        this.migraineEnde = "";
+        this.migraineDauer = "";
+        this.migraineIntensitaet = "";
         this.$router.push("/");
       } catch (err) {
         console.log(err);
